@@ -58,10 +58,10 @@ header {
 
 header hr {
     position: absolute;
-    width: 110%;
+    width: 58%;
     bottom: 10px;
-    left: -21%;
-    z-index: 0;
+    left: 0;
+    z-index: 2;
 }
 
 .logo,
