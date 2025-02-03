@@ -10,7 +10,6 @@ class User {
     }
 
     public function register($name, $email, $password) {
-        // Check if email already exists
         $stmt = $this->conn->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
         $stmt->execute([':email' => $email]);
         if ($stmt->fetchColumn() > 0) {
@@ -35,9 +34,19 @@ class User {
             session_start();
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['email'] = $email;
+            $token = bin2hex(random_bytes(16));
+            setcookie('user_token', $token, time() + (86400 * 30), "/"); 
+            $stmt = $this->conn->prepare("UPDATE users SET token = :token WHERE id = :id");
+            $stmt->execute([':token' => $token, ':id' => $user['id']]);
+
             return true;
         }
         return false;
+    }
+    public function logout() {
+        session_start();
+        session_destroy();
+        setcookie('user_token', '', time() - 3600, "/");
     }
 }
 ?>
