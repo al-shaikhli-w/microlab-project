@@ -88,6 +88,8 @@ require_once 'config/Database.php';
           </form>
           <p class="formEditError error-text" style="display:none"></p>
         </section>
+        <span class="corner corner-left"></span>
+        <span class="corner corner-right"></span>
       </div>
       <div class="col"></div>
     </div>

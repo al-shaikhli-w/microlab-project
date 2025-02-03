@@ -45,9 +45,9 @@ body {
 }
 
 /* Header */
-.page {
+/* .page {
     overflow: hidden;
-}
+} */
 
 header {
     text-align: right;
@@ -56,12 +56,15 @@ header {
     overflow: hidden;
 }
 
-header hr {
+h1.page__logo:after {
+    content: "";
+    border-bottom: 1px solid var(--color-gray);
     position: absolute;
-    width: 58%;
-    bottom: 10px;
-    left: 0;
-    z-index: 2;
+    left: -24svw;
+    bottom: 18px;
+    height: 1px;
+    width: 100svw;
+    z-index: -2;
 }
 
 .logo,
@@ -121,7 +124,7 @@ header hr {
 .row {
     display: grid;
     grid-template-columns: 15% 70% 15%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .page__section {
@@ -165,8 +168,26 @@ header hr {
     background: var(--color-white);
     padding: 2rem;
     color: var(--color-gray);
+   border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
-
+.content .corner {
+    z-index: -1;
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    display: block;
+    border-radius: 6px;
+    border: 2px solid var(--color-black);
+}
+.content .corner-left {
+    bottom: -2px;
+    left: -2px;
+}
+.content .corner-right {
+    bottom: -2px;
+    right: -2px;
+}
 .content .heading {
     font-size: 2rem;
 }

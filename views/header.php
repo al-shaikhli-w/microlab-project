@@ -9,5 +9,4 @@
 <body>
 <header class="page__header">
  <h1 class="page__logo">logo</h1>
- <hr class="page__divider">
 </header>
